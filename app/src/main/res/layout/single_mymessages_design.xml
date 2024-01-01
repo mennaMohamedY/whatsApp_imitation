@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="myMessage"
+            type="com.example.chat.chatroom.ChatDataClass" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/mymsg_right"
+            app:layout_constraintBottom_toBottomOf="@id/mymsg_right"
+            android:text="@{myMessage.tm}"
+            android:id="@+id/time_right"
+            android:layout_marginRight="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{myMessage.messsageContent}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rightmessages"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"
+            android:layout_margin="9dp"
+            android:id="@+id/mymsg_right"
+            android:padding="9dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

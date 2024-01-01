@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.chat.singlechatchat.SingleChatChatViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".singlechatchat.SingleChatChatActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="12dp"
+            android:id="@+id/headercontainer"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_weight="2">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:theme="@style/Circular"
+                    android:src="@drawable/ic_baseline_person_24"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    SetABackground="@{vm.profilpic}"
+                    android:id="@+id/img"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.name}"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="19sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginLeft="9dp"
+
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/headercontainer"
+            android:background="@color/borders_color"
+            android:id="@+id/hBorder"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/hBorder"
+            app:layout_constraintBottom_toTopOf="@id/sendmsgsContainer"
+            android:padding="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:id="@+id/msgs_rv"
+            android:background="@drawable/wabg"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp"
+            android:id="@+id/sendmsgsContainer">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="110dp"
+                android:layout_marginVertical="9dp"
+                android:id="@+id/txt">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/txtt"
+                    android:text="@={vm.msg}"
+                    android:background="@drawable/txtinputborders"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                app:layout_constraintStart_toEndOf="@id/txt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/send"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/sendimg"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_send_24"
+                android:theme="@style/Circular"
+                android:background="@color/primary"
+                android:layout_marginLeft="7dp"
+                android:id="@+id/send"
+                android:onClickListener="@{()->vm.OnSendClickListener()}"
+                android:scaleType="centerInside"
+                android:foregroundGravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@id/sendimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

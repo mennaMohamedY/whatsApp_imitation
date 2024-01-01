@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/myRoomsFragment"
+        android:name="com.example.chat.myroomsfragment.MyRoomsFragment"
+        android:label="MyRoomsFragment"
+        android:tag="myRoomsFragment"/>
+    <activity
+        android:id="@+id/chatRoomActivity"
+        android:name="com.example.chat.chatroom.ChatRoomActivity"
+        android:label="ChatRoomActivity"
+        android:tag="chatRoomFragment"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.chat.addroom.ProfileFragment"
+        android:label="ProfileFragment"
+        android:tag="profileFragment"/>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.chat.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>

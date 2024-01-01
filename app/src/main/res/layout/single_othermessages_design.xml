@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="otherMsgs"
+            type="com.example.chat.chatroom.ChatDataClass" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{otherMsgs.senderName}"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:id="@+id/sender_name"
+            android:layout_marginLeft="16dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/mymsg_left"
+            app:layout_constraintBottom_toBottomOf="@id/mymsg_left"
+            android:text="@{otherMsgs.tm}"
+            android:id="@+id/time_left"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{otherMsgs.messsageContent}"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/leftmessages"
+            app:layout_constraintTop_toBottomOf="@id/sender_name"
+            android:textColor="@color/black"
+            android:layout_margin="9dp"
+            android:id="@+id/mymsg_left"
+            android:padding="9dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

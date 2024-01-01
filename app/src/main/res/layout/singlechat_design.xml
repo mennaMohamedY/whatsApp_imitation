@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.chat.models.User" />
+        <variable
+            name="vm2"
+            type="com.example.chat.home.HomeFraViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/bg_menna"
+            android:scaleType="centerCrop"
+            android:layout_margin="12dp"
+            android:theme="@style/Circular"
+            SetABg="@{vm.userimgUri}"
+            android:id="@+id/pic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/pic"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="18dp"
+            android:text="@{vm.userName}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/name"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/pic"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintEnd_toStartOf="@id/notificationNumber"
+            android:layout_marginLeft="18dp"
+            android:text="@{vm.lastMsg}"
+            android:textSize="15sp"
+            android:maxLength="120"
+            android:maxEms="120"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="1"
+            android:background="@drawable/notification_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            android:id="@+id/notificationNumber" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@{vm2.date}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/teal_200" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Room_icons">
+        <item>Movies</item>
+        <item>Music</item>
+        <item>Sports</item>
+    </string-array>
+</resources>

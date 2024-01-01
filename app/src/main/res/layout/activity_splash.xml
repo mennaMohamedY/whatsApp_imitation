@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".splash.SplashActivity">
+       <com.denzcoskun.imageslider.ImageSlider
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toTopOf="@id/hguidline"
+           app:iss_auto_cycle="true"
+           app:iss_period="1700"
+           android:id="@+id/image_slider"
+           >
+       </com.denzcoskun.imageslider.ImageSlider>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".82"
+            android:id="@+id/hguidline"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:background="@drawable/roundedbg"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/hguidline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="52sp"
+            android:layout_marginHorizontal="42sp"
+            android:textAllCaps="false"
+            android:id="@+id/register"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/register"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Already Registered,Sign in!"
+            android:id="@+id/goto_signin"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="17sp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
